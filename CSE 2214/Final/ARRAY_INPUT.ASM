@@ -1,0 +1,72 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+    ARR DB 5 DUP (?)
+    ARR2 DW 5 DUP (?)
+    ENDL DB 0DH,0AH,'$'
+.CODE
+MAIN PROC
+    
+    MOV AX,@DATA
+    MOV DS,AX    
+    
+    ;ARR INPUT
+    MOV CX,5
+    LEA SI, ARR
+    INPUT:
+    XOR AX,AX
+    CALL INDEC
+    MOV [SI],AL
+    INC SI
+    LOOP INPUT
+    
+    ;ARR2 INPUT
+    LEA SI,ARR2
+    MOV CX,5
+    INPUT_:
+    XOR AX,AX
+    CALL INDEC
+    MOV [SI],AX
+    INC SI
+    INC SI
+    LOOP INPUT_
+    
+    
+    
+    ;ARR OUTPUT
+    MOV CX,5
+    LEA SI,ARR
+    PRINT:
+    XOR AX,AX
+    MOV AL,[SI]
+    CALL OUTDEC
+    INC SI
+    LEA DX,ENDL
+    MOV AH,9
+    INT 21H
+    LOOP PRINT
+    
+    
+    ;ARR2 OUTPUT
+    MOV CX,5
+    LEA SI,ARR2
+    PRINT_:
+    XOR AX,AX
+    MOV AX,[SI]
+    CALL OUTDEC
+    INC SI
+    INC SI
+    LEA DX,ENDL
+    MOV AH,9
+    INT 21H
+    LOOP PRINT_
+    
+    
+    
+    MOV AH,4CH
+    INT 21H    
+    
+MAIN ENDP
+INCLUDE INDEC.ASM
+INCLUDE OUTDEC.ASM
+END MAIN

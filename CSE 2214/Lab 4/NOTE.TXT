@@ -1,0 +1,12 @@
+LOOP automatically:
+
+Decreases CX by 1
+Checks whether CX = 0
+Jumps if CX ≠ 0
+
+    MOV CX, 5
+    PRINT:
+    ; print something
+    LOOP PRINT
+
+SO ITS BETTER THAN PREVIOUS TWO METHODS(CMP & JMP WAS THE FIRST METHOD, JCXZ WAS THE SECOND ONE)

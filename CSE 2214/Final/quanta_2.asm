@@ -1,0 +1,30 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+    ENDL DB 0DH,0AH,'$'
+    ARR DB 5 DUP (?)
+.CODE
+MAIN PROC
+    
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    XOR AX,AX
+   
+    
+    MOV AH,01H
+    INT 21H
+    SUB AL,20H  
+    
+    MOV DL,AL
+    MOV AH,02H
+    INT 21H
+    
+    
+    MOV AH,4CH
+    INT 21H
+    
+MAIN ENDP
+INCLUDE INDEC.ASM
+INCLUDE OUTDEC.ASM
+END MAIN
