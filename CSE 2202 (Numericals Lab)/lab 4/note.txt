@@ -1,0 +1,2 @@
+*** In gauss elimination you can take any value as pivot if it is not zero. But it's always safe to take largest absolute value as pivot and you already know why(the round-off error will be lesser)
+

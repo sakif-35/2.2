@@ -1,0 +1,1 @@
+{"name":"Local: Jacobi","url":"d:\\Uni Materials\\2.2\\CSE 2202 (Numericals Lab)\\lab 4\\Codes\\Jacobi.cpp","tests":[{"id":1788401083089,"input":"5 2 1 12\n1 4 2 15\n1 2 5 20","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Uni Materials\\2.2\\CSE 2202 (Numericals Lab)\\lab 4\\Codes\\Jacobi.cpp","group":"local","local":true}
