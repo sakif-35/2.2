@@ -1,0 +1,16 @@
+MOV CX,5
+MOV DX,2000H
+LEA SI,ARR
+
+L1:
+    MOV AL,[SI]
+    OUT DX,AL
+    INC SI
+    INC DX
+    LOOP L1
+
+
+ARR DB 1001111B,1001001B,1001001B,1001001B,1111001B
+
+for(int i=0; i<=25; i++)
+    grade[i]++;

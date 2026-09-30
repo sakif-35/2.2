@@ -1,0 +1,25 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+
+.CODE
+MAIN PROC
+    
+    ;USER INPUT
+    MOV AH, 1
+    INT 21H
+    MOV BL,AL
+    
+    ;OUTPUT
+    MOV AH,2
+    MOV DL,0AH     ;NEW LINE
+    INT 21H   
+    MOV DL,0DH     ;CRET
+    INT 21H
+    MOV DL,BL      ;OUTPUT VARIABLE
+    INT 21H 
+    
+    
+    
+    MAIN ENDP
+END MAIN

@@ -1,0 +1,16 @@
+1.Unconditional jump : JMP label
+
+2.Conditional jumps :
+    CMP AX,BX   //first you need to compare
+    
+    JE label    //if (AX==BX)
+    JNE label   // (AX!=BX)
+    JZ          // JZ WORKS LIKE JE. (AX==BX) SAME AS (AX-BX==0)
+    JNZ
+    
+    JL          // (AX<BX)
+    JG          // (AX>BX)
+    JLE         // (AX<=BX)
+    JGE         // (AX>=BX)
+
+    JCXZ       // JUMP IF CX==0. HERE WE NEED ONLY ONE REGISTER

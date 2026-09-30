@@ -1,0 +1,53 @@
+.MODEL SMALL
+.STACK 100H
+
+.DATA
+HEALTH DB 100
+CHOICE DB ?
+FACTOR DB ?
+
+.CODE
+MAIN PROC
+
+    MOV AX,@DATA
+    MOV DS,AX
+
+    ; Read choice
+    MOV AH,1
+    INT 21H
+    MOV CHOICE,AL
+
+    ; Read factor
+    MOV AH,1
+    INT 21H
+    SUB AL,30H
+    MOV FACTOR,AL
+
+    CMP CHOICE,'S'
+    JE EXIT
+
+    CMP CHOICE,'H'
+    JE INCREASE
+
+    CMP CHOICE,'D'
+    JE DECREASE
+
+    JMP EXIT
+
+INCREASE:
+    MOV BL,FACTOR
+    SHL BL,1
+    ADD HEALTH,BL
+    JMP EXIT
+
+DECREASE:
+    MOV BL,FACTOR
+    SHL BL,1
+    SUB HEALTH,BL
+
+EXIT:
+    MOV AH,4CH
+    INT 21H
+
+MAIN ENDP
+END MAIN

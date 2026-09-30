@@ -1,0 +1,9 @@
+some basic instructions:
+    mov
+    xchg
+    add
+    sub
+    inc
+    dec
+    neg
+// FOR DETAILS READ THOSE LECTURE PDF. THOSE ARE WELL DESCRIBED

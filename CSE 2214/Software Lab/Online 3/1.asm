@@ -1,0 +1,36 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+    I DW ?
+.CODE
+MAIN PROC
+    
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    CALL INDEC
+    MOV CX,AX ;N
+    MOV I,1
+    XOR BX,BX ;SUM
+    
+    L:
+    MOV AX,I
+    MUL I
+    ADD BX,AX
+    INC I
+    CMP I,CX
+    JLE L
+    
+    MOV AX,BX
+    CALL OUTDEC
+    
+    MOV AH,4CH
+    INT 21H
+
+
+       
+    
+MAIN ENDP
+INCLUDE INDEC.ASM
+INCLUDE OUTDEC.ASM
+END MAIN

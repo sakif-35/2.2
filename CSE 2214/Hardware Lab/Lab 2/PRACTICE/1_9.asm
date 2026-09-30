@@ -1,0 +1,9 @@
+MOV DX,2030H
+L1:
+    MOV AL,00111111B
+    OUT DX,AL
+    
+    MOV AL,00000110B
+    OUT DX,AL
+    
+    JMP L1

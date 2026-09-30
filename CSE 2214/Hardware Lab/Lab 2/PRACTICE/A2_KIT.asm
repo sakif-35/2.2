@@ -1,0 +1,248 @@
+MOV AH, 01H
+INT 21H
+
+MOV BL, AL
+SUB BL,30H
+
+
+S1:
+MOV AX, 00000110B
+MOV DX, 2030H
+OUT DX, AX 
+
+CMP BL, 1
+JE NEXT 
+
+S2:                                         
+MOV AX, 01011011B
+MOV DX, 2031H
+OUT DX, AX 
+
+CMP BL, 2
+JE NEXT
+
+S3:                                         
+MOV AX, 01001111B
+MOV DX, 2032H
+OUT DX, AX 
+
+CMP BL, 3
+JE NEXT
+
+S4:                                         
+MOV AX, 01100110B
+MOV DX, 2033H
+OUT DX, AX 
+
+CMP BL, 4
+JE NEXT
+
+
+S5:                                         
+MOV AX, 01101101B
+MOV DX, 2034H
+OUT DX, AX 
+
+CMP BL, 5
+JE NEXT
+
+S6:                                         
+MOV AX, 01111101B
+MOV DX, 2035H
+OUT DX, AX 
+
+CMP BL, 6
+JE NEXT
+
+S7:                                         
+MOV AX, 00000111B
+MOV DX, 2036H
+OUT DX, AX 
+
+CMP BL, 7
+JE NEXT   
+
+S8:                                         
+MOV AX, 01111111B
+MOV DX, 2037H
+OUT DX, AX 
+
+CMP BL, 8
+JE NEXT
+
+
+MOV CL, BL
+MOV CH, 0
+
+NEXT:
+
+CMP BL,1
+MOV CX,1
+JE L1
+CMP BL,2
+MOV CX,2
+JE L2
+CMP BL,3
+MOV CX,3
+JE L3
+CMP BL,4
+MOV CX,4
+JE L4
+CMP BL,5
+MOV CX,5
+JE L5
+CMP BL,6
+MOV CX,6
+JE L6
+CMP BL,7
+MOV CX,7
+JE L7
+CMP BL,8
+MOV CX,8
+JE L8
+     
+     
+L1:
+MOV AX, 00000001B
+MOV DX, 2070H
+OUT DX, AX
+
+CALL DELAY 
+
+MOV AX, 00000000B
+MOV DX, 2070H
+OUT DX, AX
+
+CALL DELAY
+
+LOOP L1
+JMP END 
+
+L2:                                         
+MOV AX, 00000011B
+MOV DX, 2070H
+OUT DX, AX 
+
+CALL DELAY 
+
+MOV AX, 00000000B
+MOV DX, 2070H
+OUT DX, AX
+
+CALL DELAY
+
+LOOP L2
+JMP END
+
+L3:                                         
+MOV AX, 00000111B
+MOV DX, 2070H
+OUT DX, AX  
+
+CALL DELAY 
+
+MOV AX, 00000000B
+MOV DX, 2070H
+OUT DX, AX
+
+CALL DELAY
+
+LOOP L3
+JMP END
+
+L4:                                         
+MOV AX, 00001111B
+MOV DX, 2070H
+OUT DX, AX
+
+CALL DELAY 
+
+MOV AX, 00000000B
+MOV DX, 2070H
+OUT DX, AX
+
+CALL DELAY
+
+LOOP L4
+JMP END
+
+
+L5:                                         
+MOV AX, 00011111B
+MOV DX, 2070H
+OUT DX, AX  
+
+CALL DELAY 
+
+MOV AX, 00000000B
+MOV DX, 2070H
+OUT DX, AX
+
+CALL DELAY
+
+LOOP L5
+JMP END
+
+L6:                                         
+MOV AX, 00111111B
+MOV DX, 2070H
+OUT DX, AX
+
+CALL DELAY 
+
+MOV AX, 00000000B
+MOV DX, 2070H
+OUT DX, AX
+
+CALL DELAY 
+
+LOOP L6
+JMP END
+
+L7:                                         
+MOV AX, 01111111B
+MOV DX, 2070H
+OUT DX, AX  
+
+CALL DELAY 
+
+MOV AX, 00000000B
+MOV DX, 2070H
+OUT DX, AX
+
+CALL DELAY
+
+LOOP L7
+JMP END  
+
+L8:                                         
+MOV AX, 11111111B
+MOV DX, 2070H
+OUT DX, AX  
+
+CALL DELAY 
+
+MOV AX, 00000000B
+MOV DX, 2070H
+OUT DX, AX
+
+CALL DELAY
+
+LOOP L8
+JMP END
+
+END:
+INT 3      
+
+
+
+DELAY PROC 
+   DEL:
+   CMP BH, 40
+   JE RET_:
+   INC BH
+   JMP DEL
+   RET_:
+   MOV BH, 0
+   RET
+ENDP DELAY
